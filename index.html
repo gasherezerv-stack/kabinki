@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kabinki.kz — Калькулятор</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+:root{
+--brand:#0b5d4b;
+--brand2:#147a63;
+--bg:#f5f7f6;
+--card:#ffffff;
+}
+body{
+background:linear-gradient(180deg,#eef5f2,#f7f7f7)!important;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif!important;
+color:#233;
+}
+.container,.card,form{
+max-width:900px;
+margin:24px auto!important;
+background:var(--card)!important;
+border-radius:18px!important;
+box-shadow:0 10px 30px rgba(0,0,0,.08)!important;
+padding:24px!important;
+}
+button{
+background:linear-gradient(135deg,var(--brand),var(--brand2))!important;
+border:none!important;
+border-radius:12px!important;
+padding:12px 18px!important;
+font-weight:600!important;
+color:#fff!important;
+}
+input,select,textarea{
+border:1px solid #d7e1dd!important;
+border-radius:10px!important;
+padding:10px!important;
+}
+h1,h2,h3{
+color:var(--brand)!important;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #2C1810;
+            min-height: 100vh;
+            color: #D4AF37;
+            padding: 20px 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 10px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #D4AF37;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .subtitle {
+            font-size: 12px;
+            color: #C4A35A;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-top: 6px;
+            opacity: 0.8;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #D4AF37;
+            margin-bottom: 16px;
+            padding-left: 8px;
+            border-left: 3px solid #D4AF37;
+        }
+
+        .glass-block {
+            background: #3D2317;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .glass-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #E8C96A;
+            margin-bottom: 14px;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .input-group {
+            flex: 1;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 11px;
+            color: #C4A35A;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .input-group input {
+            width: 100%;
+            background: #2C1810;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            padding: 14px 12px;
+            font-size: 16px;
+            color: #D4AF37;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            text-align: center;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            border-color: #D4AF37;
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+        }
+
+        .input-group input::placeholder {
+            color: rgba(212, 175, 55, 0.3);
+        }
+
+        .select-group {
+            margin-bottom: 16px;
+        }
+
+        .select-group label {
+            display: block;
+            font-size: 11px;
+            color: #C4A35A;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .select-group select {
+            width: 100%;
+            background: #2C1810;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            padding: 14px 12px;
+            font-size: 15px;
+            color: #D4AF37;
+            font-family: 'Montserrat', sans-serif;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23D4AF37' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        .price-input {
+            width: 100%;
+            background: #2C1810;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            padding: 14px 12px;
+            font-size: 16px;
+            color: #D4AF37;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            text-align: center;
+            outline: none;
+            margin-bottom: 16px;
+        }
+
+        .price-input:focus {
+            border-color: #D4AF37;
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+        }
+
+        .divider {
+            height: 1px;
+            background: rgba(212, 175, 55, 0.15);
+            margin: 24px 0;
+        }
+
+        .total-block {
+            background: #3D2317;
+            border-radius: 16px;
+            padding: 24px 20px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            margin-bottom: 20px;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .total-row:last-child {
+            border-bottom: none;
+            padding-top: 14px;
+            margin-top: 4px;
+        }
+
+        .total-row-name {
+            font-size: 14px;
+            color: #C4A35A;
+        }
+
+        .total-row-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #D4AF37;
+        }
+
+        .grand-total {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #D4AF37;
+        }
+
+        .btn-generate {
+            width: 100%;
+            background: #D4AF37;
+            color: #2C1810;
+            border: none;
+            border-radius: 14px;
+            padding: 18px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-generate:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.2);
+        }
+
+        .contacts {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .contacts-title {
+            font-size: 11px;
+            color: #C4A35A;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .contact-item {
+            font-size: 14px;
+            color: #E8C96A;
+            margin-bottom: 6px;
+        }
+
+        .contact-item a {
+            color: #D4AF37;
+            text-decoration: none;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Kabinki.kz</div>
+        <div class="subtitle">Расчёт душевой кабины</div>
+    </div>
+
+    <div class="section-title">Размеры стёкол</div>
+
+    <div class="glass-block">
+        <div class="glass-label">Первое стекло (мм)</div>
+        <div class="input-row">
+            <div class="input-group">
+                <label>Ширина</label>
+                <input type="number" id="w1" placeholder="1200" value="1200">
+            </div>
+            <div class="input-group">
+                <label>Высота</label>
+                <input type="number" id="h1" placeholder="2000" value="2000">
+            </div>
+        </div>
+    </div>
+
+    <div class="glass-block">
+        <div class="glass-label">Второе стекло (мм)</div>
+        <div class="input-row">
+            <div class="input-group">
+                <label>Ширина</label>
+                <input type="number" id="w2" placeholder="1200" value="1200">
+            </div>
+            <div class="input-group">
+                <label>Высота</label>
+                <input type="number" id="h2" placeholder="2000" value="2000">
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">Параметры</div>
+
+    <div class="glass-block">
+        <div class="select-group">
+            <label>Цена стекла, ₸/м²</label>
+            <input type="number" class="price-input" id="glassPrice" placeholder="7000" value="7000">
+        </div>
+
+        <div class="select-group">
+            <label>Цвет стекла</label>
+            <select id="glassColor">
+                <option value="Прозрачная">Прозрачная</option>
+                <option value="Матовая">Матовая</option>
+                <option value="Бронза">Бронза</option>
+                <option value="Графит">Графит</option>
+            </select>
+        </div>
+
+        <div class="select-group">
+            <label>Цвет фурнитуры</label>
+            <select id="hardwareColor">
+                <option value="Хром">Хром</option>
+                <option value="Чёрно-матовый">Чёрно-матовый</option>
+                <option value="Золото">Золото</option>
+                <option value="Латунь">Латунь</option>
+            </select>
+        </div>
+
+        <div class="select-group">
+            <label>Фурнитура, ₸</label>
+            <input type="number" class="price-input" id="hardwarePrice" placeholder="45000" value="45000">
+        </div>
+
+        <div class="select-group">
+            <label>Работа, ₸</label>
+            <input type="number" class="price-input" id="workPrice" placeholder="15000" value="15000">
+        </div>
+    </div>
+
+    <div class="total-block">
+        <div class="total-row">
+            <span class="total-row-name">Стекло</span>
+            <span class="total-row-value" id="glassTotal">33 600 ₸</span>
+        </div>
+        <div class="total-row">
+            <span class="total-row-name">Фурнитура</span>
+            <span class="total-row-value" id="hardwareTotal">45 000 ₸</span>
+        </div>
+        <div class="total-row">
+            <span class="total-row-name">Работа</span>
+            <span class="total-row-value" id="workTotal">15 000 ₸</span>
+        </div>
+        <div class="total-row">
+            <span class="total-row-name">Итого</span>
+            <span class="grand-total" id="grandTotal">93 600 ₸</span>
+        </div>
+    </div>
+
+    <button class="btn-generate" onclick="generatePDF()">Создать КП (PDF)</button>
+
+    <div class="contacts">
+        <div class="contacts-title">Контакты</div>
+        <div class="contact-item"><a href="tel:+77078072489">+7 707 807 2489</a></div>
+        <div class="contact-item"><a href="https://kabinki.kz">kabinki.kz</a></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        const { jsPDF } = window.jspdf;
+
+        function calculate() {
+            const w1 = parseFloat(document.getElementById('w1').value) || 0;
+            const h1 = parseFloat(document.getElementById('h1').value) || 0;
+            const w2 = parseFloat(document.getElementById('w2').value) || 0;
+            const h2 = parseFloat(document.getElementById('h2').value) || 0;
+            const glassPrice = parseFloat(document.getElementById('glassPrice').value) || 0;
+            const hardwarePrice = parseFloat(document.getElementById('hardwarePrice').value) || 0;
+            const workPrice = parseFloat(document.getElementById('workPrice').value) || 0;
+
+            const area1 = (w1 * h1) / 1000000;
+            const area2 = (w2 * h2) / 1000000;
+            const totalArea = area1 + area2;
+
+            const glassTotal = Math.round(totalArea * glassPrice);
+            const grandTotal = glassTotal + hardwarePrice + workPrice;
+
+            document.getElementById('glassTotal').textContent = glassTotal.toLocaleString('ru-RU') + ' ₸';
+            document.getElementById('hardwareTotal').textContent = hardwarePrice.toLocaleString('ru-RU') + ' ₸';
+            document.getElementById('workTotal').textContent = workPrice.toLocaleString('ru-RU') + ' ₸';
+            document.getElementById('grandTotal').textContent = grandTotal.toLocaleString('ru-RU') + ' ₸';
+
+            return {
+                w1, h1, w2, h2, glassPrice, hardwarePrice, workPrice,
+                glassTotal, hardwarePrice, workPrice, grandTotal,
+                totalArea: totalArea.toFixed(2),
+                glassColor: document.getElementById('glassColor').value,
+                hardwareColor: document.getElementById('hardwareColor').value
+            };
+        }
+
+        async function generatePDF() {
+            const data = calculate();
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            const dateStr = dd + '.' + mm + '.' + yyyy;
+            const kpNum = Math.floor(100 + Math.random() * 900);
+
+            const doc = new jsPDF({
+                orientation: 'portrait',
+                unit: 'mm',
+                format: 'a4'
+            });
+
+            // Фон — коричневый
+            doc.setFillColor(44, 24, 16);
+            doc.rect(0, 0, 210, 297, 'F');
+
+            // Верхняя золотая полоска
+            doc.setFillColor(212, 175, 55);
+            doc.rect(0, 0, 210, 3, 'F');
+
+            // Логотип
+            doc.setTextColor(212, 175, 55);
+            doc.setFontSize(28);
+            doc.setFont('helvetica', 'bold');
+            doc.text('Kabinki.kz', 105, 25, { align: 'center' });
+
+            doc.setFontSize(10);
+            doc.setFont('helvetica', 'normal');
+            doc.setTextColor(196, 163, 90);
+            doc.text('РАСЧЁТ ДУШЕВОЙ КАБИНЫ', 105, 32, { align: 'center' });
+
+            // Заголовок
+            doc.setTextColor(212, 175, 55);
+            doc.setFontSize(20);
+            doc.setFont('helvetica', 'bold');
+            doc.text('Коммерческое предложение', 105, 48, { align: 'center' });
+
+            // Линия под заголовком
+            doc.setDrawColor(212, 175, 55);
+            doc.setLineWidth(0.3);
+            doc.line(40, 52, 170, 52);
+
+            // Дата и номер КП
+            doc.setFontSize(11);
+            doc.setFont('helvetica', 'normal');
+            doc.setTextColor(196, 163, 90);
+            doc.text('ДАТА', 60, 62, { align: 'center' });
+            doc.text('КП №', 150, 62, { align: 'center' });
+
+            doc.setFontSize(13);
+            doc.setFont('helvetica', 'bold');
+            doc.setTextColor(212, 175, 55);
+            doc.text(dateStr, 60, 68, { align: 'center' });
+            doc.text(String(kpNum), 150, 68, { align: 'center' });
+
+            // Размеры стёкол
+            doc.setFillColor(61, 35, 23);
+            doc.roundedRect(25, 78, 160, 45, 4, 4, 'F');
+
+            doc.setFontSize(11);
+            doc.setFont('helvetica', 'bold');
+            doc.setTextColor(212, 175, 55);
+            doc.text('РАЗМЕРЫ СТЁКОЛ', 35, 88);
+
+            doc.setFontSize(12);
+            doc.setFont('helvetica', 'normal');
+            doc.setTextColor(196, 163, 90);
+            doc.text('Стекло 1', 35, 100);
+            doc.text('Стекло 2', 35, 112);
+
+            doc.setFont('helvetica', 'bold');
+            doc.setTextColor(212, 175, 55);
+            doc.text(data.w1 + ' x ' + data.h1 + ' мм', 160, 100, { align: 'right' });
+            doc.text(data.w2 + ' x ' + data.h2 + ' мм', 160, 112, { align: 'right' });
+
+            // Характеристики
+            const startY = 135;
+            const cardW = 72;
+            const cardH = 28;
+            const gap = 8;
+
+            const specs = [
+                ['Общая площадь', data.totalArea + ' м²'],
+                ['Стекло', data.glassColor],
+                ['Фурнитура', data.hardwareColor],
+                ['КП №', String(kpNum)]
+            ];
+
+            for (let i = 0; i < 4; i++) {
+                const x = i % 2 === 0 ? 25 : 25 + cardW + gap;
+                const y = startY + Math.floor(i / 2) * (cardH + gap);
+
+                doc.setFillColor(44, 24, 16);
+                doc.roundedRect(x, y, cardW, cardH, 3, 3, 'F');
+                doc.setDrawColor(212, 175, 55);
+                doc.setLineWidth(0.2);
+                doc.roundedRect(x, y, cardW, cardH, 3, 3, 'S');
+
+                doc.setFontSize(9);
+                doc.setFont('helvetica', 'normal');
+                doc.setTextColor(196, 163, 90);
+                doc.text(specs[i][0].toUpperCase(), x + cardW/2, y + 10, { align: 'center' });
+
+                doc.setFontSize(12);
+                doc.setFont('helvetica', 'bold');
+                doc.setTextColor(212, 175, 55);
+                doc.text(specs[i][1], x + cardW/2, y + 21, { align: 'center' });
+            }
+
+            // Итоговая сумма
+            const totalY = startY + 2 * (cardH + gap) + 10;
+            doc.setFillColor(212, 175, 55);
+            doc.roundedRect(25, totalY, 160, 35, 6, 6, 'F');
+
+            doc.setFontSize(11);
+            doc.setFont('helvetica', 'bold');
+            doc.setTextColor(44, 24, 16);
+            doc.text('ИТОГО', 105, totalY + 12, { align: 'center' });
+
+            doc.setFontSize(26);
+            doc.setFont('helvetica', 'bold');
+            doc.text(data.grandTotal.toLocaleString('ru-RU') + ' ₸', 105, totalY + 28, { align: 'center' });
+
+            // Примечание
+            const noteY = totalY + 45;
+            doc.setFillColor(212, 175, 55);
+            doc.roundedRect(25, noteY, 160, 22, 6, 6, 'F');
+
+            doc.setFontSize(12);
+            doc.setFont('helvetica', 'bold');
+            doc.setTextColor(44, 24, 16);
+            doc.text('Монтаж и замер входят в цену', 105, noteY + 14, { align: 'center' });
+
+            // Контакты
+            const contactY = noteY + 38;
+            doc.setDrawColor(212, 175, 55);
+            doc.setLineWidth(0.2);
+            doc.line(40, contactY, 170, contactY);
+
+            doc.setFontSize(10);
+            doc.setFont('helvetica', 'normal');
+            doc.setTextColor(196, 163, 90);
+            doc.text('КОНТАКТЫ', 105, contactY + 10, { align: 'center' });
+
+            doc.setFontSize(12);
+            doc.setFont('helvetica', 'bold');
+            doc.setTextColor(212, 175, 55);
+            doc.text('+7 707 807 2489', 105, contactY + 22, { align: 'center' });
+            doc.text('kabinki.kz', 105, contactY + 34, { align: 'center' });
+
+            // Водяной знак
+            doc.setFontSize(8);
+            doc.setTextColor(212, 175, 55);
+            doc.setTextColor(61, 35, 23);
+            doc.text('Kabinki.kz', 190, 290, { align: 'right' });
+
+            doc.save('Kabinki_KP_' + kpNum + '.pdf');
+        }
+
+        document.querySelectorAll('input, select').forEach(el => {
+            el.addEventListener('input', calculate);
+        });
+
+        calculate();
+    </script>
+</body>
+</html>
