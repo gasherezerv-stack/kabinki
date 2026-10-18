@@ -297,6 +297,14 @@ color:var(--brand)!important;
             font-weight: 500;
         }
 
+        .credit {
+            text-align: center;
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: #D4AF37;
+            margin-top: 24px;
+        }
+
         .legal {
             text-align: center;
             font-size: 11px;
@@ -408,6 +416,8 @@ color:var(--brand)!important;
         <div class="contact-item"><a href="tel:+77078072489">+7 707 807 2489</a></div>
         <div class="contact-item"><a href="https://kabinki.kz">kabinki.kz</a></div>
     </div>
+
+    <div class="credit">Создано в <b>gashe</b></div>
 
     <div class="legal">© gashe. Программа защищена авторским правом. Копирование, передача третьим лицам и перепродажа без письменного разрешения запрещены.</div>
 
@@ -620,6 +630,7 @@ color:var(--brand)!important;
             doc.setTextColor(212, 175, 55);
             doc.setTextColor(61, 35, 23);
             doc.text('Kabinki.kz', 190, 290, { align: 'right' });
+            doc.text('Создано в gashe', 20, 290, { align: 'left' });
 
             doc.save('Kabinki_KP_' + kpNum + '.pdf');
         }
