@@ -296,6 +296,15 @@ color:var(--brand)!important;
             text-decoration: none;
             font-weight: 500;
         }
+
+        .legal {
+            text-align: center;
+            font-size: 11px;
+            line-height: 1.4;
+            color: #C4A35A;
+            opacity: 0.7;
+            margin-top: 24px;
+        }
     </style>
 </head>
 <body>
@@ -400,7 +409,9 @@ color:var(--brand)!important;
         <div class="contact-item"><a href="https://kabinki.kz">kabinki.kz</a></div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <div class="legal">© Kabinki.kz. Программа защищена авторским правом. Копирование, передача третьим лицам и перепродажа без письменного разрешения запрещены.</div>
+
+    <script src="lib/jspdf.umd.min.js"></script>
     <script>
         const { jsPDF } = window.jspdf;
 

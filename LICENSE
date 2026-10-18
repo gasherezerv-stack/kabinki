@@ -1,0 +1,16 @@
+Copyright (c) 2026 Kabinki.kz. All rights reserved.
+
+This software, including its source code, design, texts and calculation
+logic, is proprietary. No licence is granted to copy, modify, distribute,
+sublicense, resell or use it for the benefit of any third party without
+prior written permission from the copyright holder.
+
+Viewing the source code does not grant any right to reuse it.
+
+Third-party components keep their own licences:
+- jsPDF (lib/jspdf.umd.min.js), MIT licence, see lib/jspdf.LICENSE.
+- DejaVu fonts embedded in the application, see the Bitstream Vera / DejaVu licence.
+
+Авторские права принадлежат Kabinki.kz. Все права защищены. Копирование,
+изменение, распространение и перепродажа программы без письменного
+разрешения правообладателя запрещены.
