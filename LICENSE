@@ -10,6 +10,7 @@ Viewing the source code does not grant any right to reuse it.
 Third-party components keep their own licences:
 - jsPDF (lib/jspdf.umd.min.js), MIT licence, see lib/jspdf.LICENSE.
 - DejaVu fonts embedded in the application, see the Bitstream Vera / DejaVu licence.
+- Montserrat and Playfair Display fonts (fonts/), SIL Open Font License 1.1, see fonts/*-OFL.txt.
 
 Авторские права принадлежат gashe. Все права защищены. Копирование,
 изменение, распространение и перепродажа программы без письменного
